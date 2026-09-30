@@ -1,0 +1,44 @@
+$ MAX_ITERATIONS=3 ./script.sh
+monitor: пишу замеры в monitor.log каждые 10 с
+monitor: сделано замеров: 3
+
+$ cat monitor.log
+--- 2026-10-01 03:14:41 ---
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       156Mi       1.0Gi       1.0Mi       768Mi       1.7Gi
+Swap:             0B          0B          0B
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           197M  1.2M  196M   1% /run
+/dev/sda1       9.6G  1.9G  7.7G  20% /
+tmpfs           984M     0  984M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda15       98M  6.3M   92M   7% /boot/efi
+tmpfs           197M  4.0K  197M   1% /run/user/1000
+ 03:14:41 up 4 min,  0 users,  load average: 0.09, 0.09, 0.03
+
+--- 2026-10-01 03:14:52 ---
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       155Mi       1.0Gi       1.0Mi       768Mi       1.7Gi
+Swap:             0B          0B          0B
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           197M  1.2M  196M   1% /run
+/dev/sda1       9.6G  1.9G  7.7G  20% /
+tmpfs           984M     0  984M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda15       98M  6.3M   92M   7% /boot/efi
+tmpfs           197M  4.0K  197M   1% /run/user/1000
+ 03:14:52 up 4 min,  0 users,  load average: 0.08, 0.09, 0.03
+
+--- 2026-10-01 03:15:02 ---
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       155Mi       1.0Gi       1.0Mi       768Mi       1.7Gi
+Swap:             0B          0B          0B
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           197M  1.2M  196M   1% /run
+/dev/sda1       9.6G  1.9G  7.7G  20% /
+tmpfs           984M     0  984M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda15       98M  6.3M   92M   7% /boot/efi
+tmpfs           197M  4.0K  197M   1% /run/user/1000
+ 03:15:02 up 4 min,  0 users,  load average: 0.06, 0.08, 0.03
+
