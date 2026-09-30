@@ -1,0 +1,9 @@
+services:
+  monitor:
+    build: .
+    image: my-script
+    environment:
+      MAX_ITERATIONS: "3"
+    volumes:
+      - ./out:/data
+      - /etc/localtime:/etc/localtime:ro
