@@ -1,0 +1,14 @@
+[Unit]
+Description=my-app: monitoring script in Docker behind Nginx
+After=docker.service storage-lab.service
+Requires=docker.service
+Wants=storage-lab.service
+
+[Service]
+ExecStart=/usr/bin/docker start -a my-app
+ExecStop=/usr/bin/docker stop -t 10 my-app
+Restart=on-failure
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

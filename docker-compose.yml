@@ -2,8 +2,9 @@ services:
   monitor:
     build: .
     image: my-script
+    command: ["/usr/local/bin/script.sh"]
     environment:
       MAX_ITERATIONS: "3"
     volumes:
-      - ./out:/data
+      - ./out:/var/www
       - /etc/localtime:/etc/localtime:ro
