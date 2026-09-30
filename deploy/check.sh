@@ -21,8 +21,8 @@ repo() {
 }
 
 part1() {
-    run "docker build -t my-script $REPO_DIR 2>&1 | tail -3"
-    run "docker run --rm -e MAX_ITERATIONS=1 my-script /usr/local/bin/script.sh"
+    run "docker build -t my-script:check $REPO_DIR 2>&1 | tail -3"
+    run "docker run --rm -e MAX_ITERATIONS=1 my-script:check /usr/local/bin/script.sh"
     run "docker ps -a --filter name=my-app"
     run "cat /proc/mdstat"
     run "sudo vgs && sudo lvs"
@@ -31,10 +31,13 @@ part1() {
 
 part2() {
     run "sudo nginx -t"
+    run "curl -sI http://$HOST_IP | head -3"
     run "curl -skI https://$HOST_IP"
+    run "openssl x509 -in /etc/ssl/certs/my-app.crt -noout -subject -issuer -enddate"
     run "systemctl status my-app --no-pager | head -5"
     run "journalctl -u my-app -n 4 --no-pager"
     run "tail -n 3 /var/log/nginx/access.log"
+    run "sudo wc -l /var/log/nginx/error.log && sudo tail -n 3 /var/log/nginx/error.log"
 }
 
 case "${1:-all}" in
