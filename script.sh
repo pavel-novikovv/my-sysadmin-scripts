@@ -14,7 +14,7 @@ timestamp() {
     date '+%Y-%m-%d %H:%M:%S'
 }
 
-[[ "$MAX_ITERATIONS" =~ ^[0-9]+$ ]] || fail "MAX_ITERATIONS должно быть целым числом от 0 (0 - без ограничения)"
+[[ "$MAX_ITERATIONS" =~ ^(0|[1-9][0-9]*)$ ]] || fail "MAX_ITERATIONS должно быть целым числом от 0 (0 - без ограничения)"
 
 for cmd in free df uptime; do
     command -v "$cmd" >/dev/null 2>&1 || fail "не найдена команда $cmd"
