@@ -1,0 +1,12 @@
+[Unit]
+Description=Loop-device RAID 1 and LVM for the sysadmin lab
+After=local-fs.target systemd-udevd.service
+Before=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/storage.sh
+
+[Install]
+WantedBy=multi-user.target
